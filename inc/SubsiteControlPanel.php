@@ -290,15 +290,24 @@ class SubsiteControlPanel {
 				/**
 				 * Reach into the database value and find the value for this setting, in this section.
 				 */
-				$value = esc_textarea( $data[ $settings_section_id ][ $setting_id ] );
-										
+				$value = '';
+				if( isset( $data[ $settings_section_id ] ) ) {
+					if( isset( $data[ $settings_section_id ][ $setting_id ] ) ) {
+						$value = $data[ $settings_section_id ][ $setting_id ];
+					}
+				}
+
 				if( $type == 'textarea' ) {
+
+					$value = esc_textarea( $value );
 
 					$out = "
 						<textarea style='min-height: 10em;' class='widefat' name='$name' id='$id'>$value</textarea>
 					";
 				
 				} else {
+
+					$value = esc_attr( $value );
 
 					$out = "
 						<input type='$type' name='$name' id='$id' value='$value'>

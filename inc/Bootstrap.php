@@ -27,7 +27,9 @@ class Bootstrap {
 		$waiver_alert -> meta                  = new Meta;
 		$waiver_alert -> subsite_settings      = new SubsiteSettings;
 		$waiver_alert -> subsite_control_panel = new SubsiteControlPanel;
-		
+		$waiver_alert -> update                = new Update;
+		$waiver_alert -> cron                  = new Cron;
+
 		return $waiver_alert;
 
 	}

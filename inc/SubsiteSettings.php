@@ -31,7 +31,7 @@ class SubsiteSettings {
 		$out = array();
 
 		// Create the "section_1" section.
-		$out['section_1'] = array(
+		$out['setup'] = array(
 
 			// The label for this settings section.
 			'label' => esc_html__( 'Section 1', 'waiver_alert' ),
@@ -40,79 +40,20 @@ class SubsiteSettings {
 			'settings' => array(
 
 	            // A setting.
-				'setting_1' => array(
+				'league_id' => array(
 
 					// The user-facing label text for this setting.
-					'label'    => esc_html__( 'Setting 1', 'waiver_alert' ),
+					'label'    => esc_html__( 'League ID', 'waiver_alert' ),
 					
 					// The type of form input.
 					'type'     => 'text',
 					
 					// Some notes for this setting.
-					'notes'    => esc_html__( 'A setting in section 1', 'waiver_alert' ),
+					'notes'    => sprintf( esc_html__( 'Your league ID, found in the url for your league on espn.com.  For example, %s', 'waiver_alert' ), '<strong>http://games.espn.com/ffl/leagueoffice?leagueId=9012</strong>')
 
 				// End this setting.
 				),	
 
-				// Another setting.
-				'setting_2' => array(
-					
-					// The user-facing label text for this setting.
-					'label'    => esc_html__( 'Setting 2', 'waiver_alert' ),
-					
-					// The type of form input.
-					'type'     => 'textarea',
-					
-					// Some notes for this setting.
-					'notes'    => esc_html__( 'Hello', 'waiver_alert' ),
-
-				// End this setting.
-				),
-				
-			// End the list of settings for this section.
-			)
-
-		// End this section.
-		);
-		
-		// Create the "section_2" section.
-		$out['section_2'] = array(
-
-			// The label for this settings section.
-			'label' => esc_html__( 'Section 2', 'waiver_alert' ),
-			
-			// The array of settings for this section.
-			'settings' => array(
-
-	            // A setting.
-				'setting_1' => array(
-
-					// The user-facing label text for this setting.
-					'label'    => esc_html__( 'Setting 1', 'waiver_alert' ),
-					
-					// The type of form input.
-					'type'     => 'text',
-					
-					// Some notes for this setting.
-					'notes'    => esc_html__( 'A setting in section 2', 'waiver_alert' ),
-
-				// End this setting.
-				),	
-
-				// Another setting.
-				'setting_2' => array(
-					
-					// The user-facing label text for this setting.
-					'label'    => esc_html__( 'Setting 2', 'waiver_alert' ),
-					
-					// The type of form input.
-					'type'     => 'textarea',
-					
-					// Some notes for this setting.
-					'notes'    => esc_html__( 'World', 'waiver_alert' ),
-
-				// End this setting.
-				),
 				
 			// End the list of settings for this section.
 			)
