@@ -13,7 +13,6 @@
  * Author: Angelo Carosio & Scott Fennell
  * Version: 0.1
  * Author URI: http://www.lexblog.com
- * Network: TRUE
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as 

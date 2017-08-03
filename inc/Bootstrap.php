@@ -25,8 +25,6 @@ class Bootstrap {
 		global $waiver_alert;
 
 		$waiver_alert -> meta                  = new Meta;
-		$waiver_alert -> post_meta_fields      = new PostMetaFields;		
-		$waiver_alert -> config                = new Config;
 		$waiver_alert -> subsite_settings      = new SubsiteSettings;
 		$waiver_alert -> subsite_control_panel = new SubsiteControlPanel;
 		
