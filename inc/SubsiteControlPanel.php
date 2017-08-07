@@ -126,11 +126,19 @@ class SubsiteControlPanel {
 
 		$get_call = $call -> get();
 
-		ob_start();
+		$body = $get_call['body'];
 
-		var_dump( $get_call );
+		$result = array();
 
-		$out = ob_get_clean();
+		@$classname    = 'games-pageheader';
+		@$domdocument  = new \DOMDocument();
+		@$domdocument -> loadHTML( $body );
+		@$a            = new \DOMXPath( $domdocument );
+		@$spans        = $a -> query( "//*[contains(@class, '$classname')]" );
+
+		$out = $spans[0] -> textContent;
+
+		var_dump( $out );
 
 		return $out;
 
