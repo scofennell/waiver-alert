@@ -12,7 +12,11 @@ namespace Waiver_Alert;
 
 class SubsiteSettings {
 
-	public function __construct() {}
+	public function __construct() {
+
+		$this -> set_settings_values();
+
+	}
 
 	/**
 	 * Get the unique namespace for our plugin subsite settings.  What you'd call in get_option( $slug ).
@@ -34,7 +38,7 @@ class SubsiteSettings {
 		$out['setup'] = array(
 
 			// The label for this settings section.
-			'label' => esc_html__( 'Section 1', 'waiver_alert' ),
+			'label' => esc_html__( 'Setup', 'waiver_alert' ),
 			
 			// The array of settings for this section.
 			'settings' => array(
@@ -65,16 +69,21 @@ class SubsiteSettings {
 
 	}
 
-	/**
-	 * Grab the values for all of our plugin settings.
-	 * 
-	 * @return array A call to get_option();
-	 */
+	public function set_settings_values() {
+
+		$this -> settings_values = get_option( $this -> get_settings_slug() );
+
+	}
+
 	public function get_settings_values() {
 
-		$out = get_option( $this -> get_settings_slug() );
+		return $this -> settings_values;
 
-		return $out;
+	}
+
+	function get_value( $section_slug, $setting_slug ) {
+
+		return $this -> settings_values[ $section_slug ][ $setting_slug ];
 
 	}
 

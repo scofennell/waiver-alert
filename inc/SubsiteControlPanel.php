@@ -94,6 +94,8 @@ class SubsiteControlPanel {
 		// Grab the stuff from the OB, clean the OB.
 		$settings = ob_get_clean();
 
+		$call = $this -> get_call();
+
 		// Grab a submit button.
 		$submit = $this -> get_submit_button();
 
@@ -104,12 +106,31 @@ class SubsiteControlPanel {
 		$out = "
 			<div class='wrap'>
 				<h2>$page_title</h2>
+
+				$call
+
 				<form method='POST' action='options.php'>
 					$settings
 					<p>$submit</p>
 				</form>
 			</div>
 		";
+
+		return $out;
+
+	}
+
+	function get_call() {
+
+		$call = new Call;
+
+		$get_call = $call -> get();
+
+		ob_start();
+
+		var_dump( $get_call );
+
+		$out = ob_get_clean();
 
 		return $out;
 

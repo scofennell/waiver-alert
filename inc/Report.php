@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A class for managing cron.
+ * A class for reporting on calls.
  *
  * @package WordPress
  * @subpackage Waiver_Alert
@@ -9,5 +9,6 @@
  */
 namespace Waiver_Alert;
 
-class Cron {
+class Report {
+
 }

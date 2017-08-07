@@ -52,6 +52,14 @@ define( 'WAIVER_ALERT_URL', trailingslashit( plugin_dir_url( WAIVER_ALERT_FILE )
 $waiver_alert  = new stdClass();
 $waiver_alert -> bootstrap = WAIVER_ALERT . '\Bootstrap';
 
+function get_wa() {
+
+	global $waiver_alert;
+
+	return $waiver_alert;
+
+}
+
 // Register an autoloader.
 require_once( WAIVER_ALERT_PATH . 'autoload.php' );
 
