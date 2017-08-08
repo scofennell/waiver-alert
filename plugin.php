@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A wa for starting new plugins.
+ * A waiver alert system.
  *
  * @package WordPress
  * @subpackage Waiver_Alert
@@ -9,8 +9,8 @@
  * 
  * Plugin Name: Waiver Alert
  * Plugin URI: https://www.lexblog.com
- * Description: A wa for starting new plugins.
- * Author: Angelo Carosio & Scott Fennell
+ * Description: A waiver alert system.
+ * Author: Scott Fennell
  * Version: 0.1.1
  * Author URI: http://www.lexblog.com
  * 

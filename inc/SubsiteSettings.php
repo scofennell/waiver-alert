@@ -53,7 +53,7 @@ class SubsiteSettings {
 					'type'     => 'text',
 					
 					// Some notes for this setting.
-					'notes'    => sprintf( esc_html__( 'Your league ID, found in the url for your league on espn.com.  For example, %s', 'waiver_alert' ), '<strong>http://games.espn.com/ffl/leagueoffice?leagueId=9012</strong>')
+					'notes'    => sprintf( esc_html__( 'Your league ID, found in the url for your league on espn.com.  For example, %s', 'waiver_alert' ), '<strong>http://games.espn.com/ffl/leagueoffice?leagueId=1234</strong>')
 
 				// End this setting.
 				),	
