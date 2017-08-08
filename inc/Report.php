@@ -13,6 +13,8 @@ class Report {
 
 	function __construct( $date ) {
 
+		#delete_option( 'wa_last_waiver_time' );
+
 		$this -> date = $date;
 
 	}
