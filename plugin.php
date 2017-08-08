@@ -11,7 +11,7 @@
  * Plugin URI: https://www.lexblog.com
  * Description: A wa for starting new plugins.
  * Author: Angelo Carosio & Scott Fennell
- * Version: 0.1
+ * Version: 0.1.1
  * Author URI: http://www.lexblog.com
  * 
  * This program is free software; you can redistribute it and/or modify

@@ -14,9 +14,6 @@ class Cron {
 
 	public function __construct() {
 
-		$this -> set_call();
-		$this -> set_report();
-
 		add_filter( 'cron_schedules', array( $this, 'minutely' ) ); 
 
 		add_action( 'init', array( $this, 'remove_event' ) );
@@ -37,7 +34,11 @@ class Cron {
 
 	function the_event() {
 
-		
+		$call     = new Call;
+		$get_call = $call -> get();
+
+		$report = new Report( $get_call );
+		$get_report = $report -> get();
 
 	}
 
@@ -64,33 +65,5 @@ class Cron {
 		return TRUE;
 
 	}
-
-	function get_report() {
-
-		return $this -> report;
-
-	}
-
-	function set_report() {
-
-		$report = new Report( $this -> call );
-
-		$this -> report = $report -> get();
-
-	}
-
-	function get_call() {
-
-		return $this -> call;
-
-	}
-
-	function set_call() {
-
-		$call = new Call;
-
-		$this -> call = $call -> get();
-
-	}	
 
 }
