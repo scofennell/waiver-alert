@@ -65,7 +65,19 @@ class Call {
 
 		$url = $this -> get_url();
 
-		return wp_remote_get( $url );
+		$get = wp_remote_get( $url );
+
+		$body = $get['body'];
+
+		@$classname    = 'games-pageheader';
+		@$domdocument  = new \DOMDocument();
+		@$domdocument -> loadHTML( $body );
+		@$a            = new \DOMXPath( $domdocument );
+		@$spans        = $a -> query( "//*[contains(@class, '$classname')]" );
+
+		$out = $spans[0] -> textContent;
+
+		return $out;
 
 	}
 

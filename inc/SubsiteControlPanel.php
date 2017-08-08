@@ -29,6 +29,9 @@ class SubsiteControlPanel {
 
 		// Register our settings.
 		add_action( 'admin_init', array( $this, 'register' ) );
+
+		add_action( 'before_wa_settings', array( $this, 'set_call' ) );
+		add_action( 'before_wa_settings', array( $this, 'set_report' ) );
 		
 	}
 
@@ -80,7 +83,11 @@ class SubsiteControlPanel {
 	 */
 	public function get_page() {
 		
+		do_action( 'before_wa_settings' );
+
 		$out = '';
+
+		$report = $this -> get_report();
 
 		// Start an output buffer since some of these functions always echo.
 		ob_start();
@@ -94,8 +101,6 @@ class SubsiteControlPanel {
 		// Grab the stuff from the OB, clean the OB.
 		$settings = ob_get_clean();
 
-		$call = $this -> get_call();
-
 		// Grab a submit button.
 		$submit = $this -> get_submit_button();
 
@@ -107,7 +112,7 @@ class SubsiteControlPanel {
 			<div class='wrap'>
 				<h2>$page_title</h2>
 
-				$call
+				$report
 
 				<form method='POST' action='options.php'>
 					$settings
@@ -120,27 +125,31 @@ class SubsiteControlPanel {
 
 	}
 
+	function get_report() {
+
+		return $this -> report;
+
+	}
+
+	function set_report() {
+
+		$report = new Report( $this -> call );
+
+		$this -> report = $report -> get();
+
+	}
+
 	function get_call() {
+
+		return $this -> call;
+
+	}
+
+	function set_call() {
 
 		$call = new Call;
 
-		$get_call = $call -> get();
-
-		$body = $get_call['body'];
-
-		$result = array();
-
-		@$classname    = 'games-pageheader';
-		@$domdocument  = new \DOMDocument();
-		@$domdocument -> loadHTML( $body );
-		@$a            = new \DOMXPath( $domdocument );
-		@$spans        = $a -> query( "//*[contains(@class, '$classname')]" );
-
-		$out = $spans[0] -> textContent;
-
-		var_dump( $out );
-
-		return $out;
+		$this -> call = $call -> get();
 
 	}
 
