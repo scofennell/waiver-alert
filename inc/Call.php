@@ -75,8 +75,10 @@ class Call {
 		@$a            = new \DOMXPath( $domdocument );
 		@$spans        = $a -> query( "//*[contains(@class, '$classname')]" );
 
-		$out = $spans[0] -> textContent;
-
+		$text    = $spans[0] -> textContent;
+		$clutter = 'Waiver Report ';
+		$out     = str_replace( $clutter, '', $text );
+		
 		return $out;
 
 	}
